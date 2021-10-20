@@ -13,65 +13,56 @@ void init (void){
 	gluOrtho2D (0, 400, 0, 400);// Orthogonal projection: [x,y,z]--->[x,y,0]
 }
 
-// Implementing Mid-Point Circle Drawing Algorithm
 void midPointCircleDraw(void){
     glClear (GL_COLOR_BUFFER_BIT); // Clear display window.
-	glColor3f (1.0, 1.0, 0.0); // Set point color to green.
-	glPointSize(10.0f); // Set point size
+	glColor3f (1.0, 1.0, 0.0);
+	glPointSize(7.0f); // Set point size
 	glBegin(GL_POINTS);// Marks the beginning of the vertices list
 
     int x_centre = 200;
     int y_centre = 200;
     int r = 100;
 
-	// int x = r*cos(135*PI/180), y = r*sin(135*PI/180);
-    int x = -(100/sqrt(2)) + 2, y = 100/sqrt(2);
-	// Printing the initial point on the axes
-	// after translation
+	int x = r*cos(135*PI/180), y = r*sin(135*PI/180);
    
     glVertex2i(x+x_centre, y+y_centre);
 
-	// Initialising the value of P
-    
-	// int d = x*x + y*y - r*r;
-    int d = 1.25 + 100/sqrt(2);
-    cout<<d<<'\n';
+    int d = 1.25 + r*sin(135*PI/180);
+
     int dsw = 2*x + 2*y +5;
     int dw = 2*y + 3;
 
-    while (y > 0){
-        y--;
-        cout<<x<<' '<<y<<' '<<d<<'\n';
+    while (y-- > 0){
         if (d < 0){
-            // x--;
-            // d += x*x + y*y - r*r;
             d = d + dw;
             dw = dw - 2;
             dsw = dsw - 2;
         }
         else{
-            // d = x*x + y*y - r*r;
             d = d + dsw;
             x--;
             dw = dw -2;
             dsw = dsw - 4;
         }
         glVertex2i(x + x_centre, y + y_centre);
-        
     }
 
-    while (y > r*sin(215*PI/180)){	
-        y--;
-		if (d <= 0){
-            d = x*x + y*y - r*r;
+    while (y-- > r*sin(215*PI/180)){	
+        if (d < 0){
+            d = d + dw;
+            dw = dw + 2;
+            dsw = dsw + 2;
         }
-		else{
+        else{
+            d = d + dsw;
+            y--;
             x++;
-            d = x*x + y*y - r*r;
-		}		
-        glVertex2i(x+x_centre, y+y_centre);
+            dw = dw + 2;
+            dsw = dsw + 4;
+        }
+        glVertex2i(x + x_centre, y + y_centre);
 	}
-    
+
     glEnd();
 	glFlush(); 
 
