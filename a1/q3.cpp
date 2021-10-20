@@ -13,8 +13,8 @@ void init (void){
 // Implementing Mid-Point Circle Drawing Algorithm
 void midPointCircleDraw(void){
     glClear (GL_COLOR_BUFFER_BIT); // Clear display window.
-	glColor3f (1.0, 0.0, 0.0); // Set point color to green.
-	glPointSize(20.0f); // Set point size
+	glColor3f (1.0, 1.0, 0.0); // Set point color to green.
+	glPointSize(5.0f); // Set point size
 	glBegin(GL_POINTS);// Marks the beginning of the vertices list
 
     int x_centre = 200;
@@ -27,12 +27,6 @@ void midPointCircleDraw(void){
 	// after translation
     glVertex2i(x+x_centre, y+y_centre);
 
-    if (r > 0){
-        glVertex2i(x+x_centre, -y+y_centre);
-        glVertex2i(y+x_centre, x+y_centre);
-        glVertex2i(-y+x_centre, x+y_centre);
-	}
-	
 	// Initialising the value of P
 	int P = 1 - r;
 	while (x > y)
@@ -56,18 +50,11 @@ void midPointCircleDraw(void){
 		// Printing the generated point and its reflection
 		// in the other octants after translation
         glVertex2i(x+x_centre, y+y_centre);
-        glVertex2i(-x+x_centre, y+y_centre);
-        glVertex2i(x+x_centre, -y+y_centre);
-        glVertex2i(-x+x_centre, -y+y_centre);
+        
 		
 		// If the generated point is on the line x = y then
 		// the perimeter points have already been printed
-		if (x != y){
-            glVertex2i(y+x_centre, x+y_centre);
-            glVertex2i(-y+x_centre, x+y_centre);
-            glVertex2i(y+x_centre, -x+y_centre);
-            glVertex2i(-y+x_centre, -x+y_centre);
-		}
+		
 	}
     glEnd();
 	glFlush(); 
