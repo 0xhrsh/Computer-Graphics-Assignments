@@ -2,7 +2,10 @@
 #include <GL/glu.h> 
 #include <GL/glut.h>
 #include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
+
+#define PI 3.14159265
 
 void init (void){
 	glClearColor (1.0, 1.0, 1.0, 0.0); // Set display-window color to white.
@@ -14,49 +17,54 @@ void init (void){
 void midPointCircleDraw(void){
     glClear (GL_COLOR_BUFFER_BIT); // Clear display window.
 	glColor3f (1.0, 1.0, 0.0); // Set point color to green.
-	glPointSize(5.0f); // Set point size
+	glPointSize(10.0f); // Set point size
 	glBegin(GL_POINTS);// Marks the beginning of the vertices list
 
     int x_centre = 200;
     int y_centre = 200;
     int r = 100;
 
-	int x = r*(-0.8191), y = r*(-0.5736);
-
-	
+	int x = r*cos(135*PI/180), y = -r*sin(135*PI/180);
 	// Printing the initial point on the axes
 	// after translation
+   
+    cout<<x+x_centre<<" "<<y+y_centre<<endl;
     glVertex2i(x+x_centre, y+y_centre);
+    glVertex2i(x_centre, y_centre);
 
 	// Initialising the value of P
-	int P = 1 - r;
-	while (- x > y)
-	{
-		y++;
-		
-		// Mid-point is inside or on the perimeter
-		if (P <= 0)
-			P = P + 2*y + 1;
-		// Mid-point is outside the perimeter
-		else
-		{
-			x--;
-			P = P + 2*y - 2*x + 1;
-		}
-		
-		// All the perimeter points have already been printed
-		if (- x < y)
-			break;
-		
-		// Printing the generated point and its reflection
-		// in the other octants after translation
+    
+	int d = x*x + y*y - r*r;
+    
+    int dsw = (2*x + 2*y + 5);
+    int dw = (2*y-3);
+
+    // while (y < 0){
+    //     y++;
+    //     if (d < 0){
+    //         x--;
+    //         d = x*x + y*y - r*r;
+    //     }
+    //     else{
+    //         d = x*x + y*y - r*r;
+    //     }
+    //     glVertex2i(x + x_centre, y + y_centre);
+    // }
+
+	while (y < 0){	
+        y++;
+		if (d <= 0){
+            d = d + dw;
+            x--;
+            dw = (2*x + 2*y + 5);
+        }
+		else{
+            d = d + dsw;
+            dsw = (2*y-3);
+		}		
         glVertex2i(x+x_centre, y+y_centre);
-        
-		
-		// If the generated point is on the line x = y then
-		// the perimeter points have already been printed
-		
 	}
+    
     glEnd();
 	glFlush(); 
 
