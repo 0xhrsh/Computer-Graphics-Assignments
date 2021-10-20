@@ -7,7 +7,7 @@ using namespace std;
 void init (void){
 	glClearColor (1.0, 1.0, 1.0, 0.0); // Set display-window color to white.
 	glMatrixMode (GL_PROJECTION); // Set projection parameters.
-	gluOrtho2D (0, 400, 0, 400);// Orthogonal projection: [x,y,z]--->[x,y,0]
+	gluOrtho2D (0, 500, 0, 500);// Orthogonal projection: [x,y,z]--->[x,y,0]
 }
 
 void midPoint(void){
@@ -16,23 +16,23 @@ void midPoint(void){
 	glPointSize(2.0f); // Set point size
 	glBegin(GL_POINTS);// Marks the beginning of the vertices list
 
-    int X1 = 50;
-    int Y1 = 50;
-    int X2 = 200;
-    int Y2 = 200;
+    int x0 = 150;
+    int y0 = 150;
+    int x1 = 300;
+    int y1 = 300;
 
-    int dx = X2 - X1;
-    int dy = Y2 - Y1;
+    int dx = x1 - x0;
+    int dy = y1 - y0;
    
     if(dy<=dx){
         int d = dy - (dx/2);
-        int x = X1, y = Y1;
+        int x = x0, y = y0;
  
         // Plot initial given point
         glVertex2i(x, y);
 
         // iterate through value of X
-        while (x < X2){
+        while (x < x1){
             x++;
  
             // E or East is chosen
@@ -52,13 +52,13 @@ void midPoint(void){
     } else if(dx<dy){
         // initial value of decision parameter d
         int d = dx - (dy/2);
-        int x = X1, y = Y1;
+        int x = x0, y = y0;
     
         // Plot initial given point
         glVertex2i(x, y);
 
         // iterate through value of X
-        while (y < Y2){
+        while (y < y1){
             y++;
     
             // E or East is chosen

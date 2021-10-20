@@ -62,7 +62,7 @@ void triangle(void){
 int main(int argc, char** argv){
 	glutInit(&argc, argv); // Initialize GLUT.
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB); // Set display mode.
-	glutInitWindowPosition(10, 30); // Set top-left display-window position.
+	glutInitWindowPosition(0, 0); // Set top-left display-window position.
 	glutInitWindowSize(500, 500); // Set display-window width and height.
 	glutCreateWindow("Assignment 1: Q2"); // Create display window.
 	init(); // Execute initialization procedure.
