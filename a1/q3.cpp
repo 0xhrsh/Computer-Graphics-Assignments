@@ -10,7 +10,7 @@ using namespace std;
 void init (void){
 	glClearColor (1.0, 1.0, 1.0, 0.0); // Set display-window color to white.
 	glMatrixMode (GL_PROJECTION); // Set projection parameters.
-	gluOrtho2D (0, 400, 400, 1);// Orthogonal projection: [x,y,z]--->[x,y,0]
+	gluOrtho2D (0, 400, 0, 400);// Orthogonal projection: [x,y,z]--->[x,y,0]
 }
 
 // Implementing Mid-Point Circle Drawing Algorithm
@@ -24,43 +24,36 @@ void midPointCircleDraw(void){
     int y_centre = 200;
     int r = 100;
 
-	int x = r*cos(135*PI/180), y = -r*sin(135*PI/180);
+	int x = r*cos(135*PI/180), y = r*sin(135*PI/180);
 	// Printing the initial point on the axes
 	// after translation
    
-    cout<<x+x_centre<<" "<<y+y_centre<<endl;
     glVertex2i(x+x_centre, y+y_centre);
-    glVertex2i(x_centre, y_centre);
 
 	// Initialising the value of P
     
 	int d = x*x + y*y - r*r;
-    
-    int dsw = (2*x + 2*y + 5);
-    int dw = (2*y-3);
 
-    // while (y < 0){
-    //     y++;
-    //     if (d < 0){
-    //         x--;
-    //         d = x*x + y*y - r*r;
-    //     }
-    //     else{
-    //         d = x*x + y*y - r*r;
-    //     }
-    //     glVertex2i(x + x_centre, y + y_centre);
-    // }
-
-	while (y < 0){	
-        y++;
-		if (d <= 0){
-            d = d + dw;
+    while (y > 0){
+        y--;
+        if (d < 0){
             x--;
-            dw = (2*x + 2*y + 5);
+            d += x*x + y*y - r*r;
+        }
+        else{
+            d = x*x + y*y - r*r;
+        }
+        glVertex2i(x + x_centre, y + y_centre);
+    }
+
+    while (y > r*sin(215*PI/180)){	
+        y--;
+		if (d <= 0){
+            d = x*x + y*y - r*r;
         }
 		else{
-            d = d + dsw;
-            dsw = (2*y-3);
+            x++;
+            d = x*x + y*y - r*r;
 		}		
         glVertex2i(x+x_centre, y+y_centre);
 	}

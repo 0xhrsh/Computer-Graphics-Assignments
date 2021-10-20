@@ -7,7 +7,7 @@ using namespace std;
 void init (void){
 	glClearColor (1.0, 1.0, 1.0, 0.0); // Set display-window color to white.
 	glMatrixMode (GL_PROJECTION); // Set projection parameters.
-	gluOrtho2D (0, 400, 400, 1);// Orthogonal projection: [x,y,z]--->[x,y,0]
+	gluOrtho2D (0, 400, 0, 400);// Orthogonal projection: [x,y,z]--->[x,y,0]
 }
 
 void midPoint(void){
