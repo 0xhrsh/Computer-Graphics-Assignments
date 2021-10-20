@@ -28,51 +28,30 @@ void midPoint(void){
         int d = dy - (dx/2);
         int x = x0, y = y0;
  
-        // Plot initial given point
         glVertex2i(x, y);
 
-        // iterate through value of X
         while (x < x1){
             x++;
- 
-            // E or East is chosen
             if (d < 0)
                 d = d + dy;
- 
-            // NE or North East is chosen
             else{
                 d += (dy - dx);
                 y++;
             }
- 
-            // Plot intermediate points
             glVertex2i(x, y);
-        
         }
     } else if(dx<dy){
-        // initial value of decision parameter d
         int d = dx - (dy/2);
         int x = x0, y = y0;
-    
-        // Plot initial given point
         glVertex2i(x, y);
-
-        // iterate through value of X
         while (y < y1){
             y++;
-    
-            // E or East is chosen
             if (d < 0)
                 d = d + dx;
-    
-            // NE or North East is chosen
-            // NE or North East is chosen
             else{
                 d += (dx - dy);
                 x++;
             }
-    
-            // Plot intermediate points
             glVertex2i(x, y);
         }
     }
