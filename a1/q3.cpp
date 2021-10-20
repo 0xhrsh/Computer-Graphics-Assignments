@@ -32,16 +32,26 @@ void midPointCircleDraw(void){
 
 	// Initialising the value of P
     
-	int d = x*x + y*y - r*r;
+	// int d = x*x + y*y - r*r;
+    int d = 1.25 + r/sqrt(2);
+    int dw = 2*x + 2*y +5;
+    int dsw = 2*y - 3;
 
     while (y > 0){
         y--;
         if (d < 0){
             x--;
-            d += x*x + y*y - r*r;
+            // d += x*x + y*y - r*r;
+            d = d + dw;
+            dw = dw - 2;
+            dsw = dsw - 3;
         }
         else{
-            d = x*x + y*y - r*r;
+            // d = x*x + y*y - r*r;
+            d = d + dsw;
+            x--;
+            dw = dw -2;
+            dsw = dsw - 4;
         }
         glVertex2i(x + x_centre, y + y_centre);
     }
