@@ -21,7 +21,8 @@ void midPointCircleDraw(void){
     int y_centre = 200;
     int r = 100;
 
-	int x = r, y = 0;
+	int x = r*(-0.8191), y = r*(-0.5736);
+
 	
 	// Printing the initial point on the axes
 	// after translation
@@ -29,7 +30,7 @@ void midPointCircleDraw(void){
 
 	// Initialising the value of P
 	int P = 1 - r;
-	while (x > y)
+	while (- x > y)
 	{
 		y++;
 		
@@ -44,7 +45,7 @@ void midPointCircleDraw(void){
 		}
 		
 		// All the perimeter points have already been printed
-		if (x < y)
+		if (- x < y)
 			break;
 		
 		// Printing the generated point and its reflection
