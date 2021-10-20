@@ -82,7 +82,7 @@ int main(int argc, char** argv){
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB); // Set display mode.
 	glutInitWindowPosition(0, 0); // Set top-left display-window position.
 	glutInitWindowSize(700, 700); // Set display-window width and height.
-	glutCreateWindow("Assignment 1: Q2"); // Create display window.
+	glutCreateWindow("Assignment 1: Q3"); // Create display window.
 	init(); // Execute initialization procedure.
 	glutDisplayFunc(midPointCircleDraw); // Send graphics to display window.
 	glutMainLoop(); // Display everything and wait.
