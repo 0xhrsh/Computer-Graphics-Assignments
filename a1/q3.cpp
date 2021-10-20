@@ -24,7 +24,8 @@ void midPointCircleDraw(void){
     int y_centre = 200;
     int r = 100;
 
-	int x = r*cos(135*PI/180), y = r*sin(135*PI/180);
+	// int x = r*cos(135*PI/180), y = r*sin(135*PI/180);
+    int x = -(100/sqrt(2)) + 2, y = 100/sqrt(2);
 	// Printing the initial point on the axes
 	// after translation
    
@@ -33,18 +34,20 @@ void midPointCircleDraw(void){
 	// Initialising the value of P
     
 	// int d = x*x + y*y - r*r;
-    int d = 1.25 + r/sqrt(2);
-    int dw = 2*x + 2*y +5;
-    int dsw = 2*y - 3;
+    int d = 1.25 + 100/sqrt(2);
+    cout<<d<<'\n';
+    int dsw = 2*x + 2*y +5;
+    int dw = 2*y + 3;
 
     while (y > 0){
         y--;
+        cout<<x<<' '<<y<<' '<<d<<'\n';
         if (d < 0){
-            x--;
+            // x--;
             // d += x*x + y*y - r*r;
             d = d + dw;
             dw = dw - 2;
-            dsw = dsw - 3;
+            dsw = dsw - 2;
         }
         else{
             // d = x*x + y*y - r*r;
@@ -54,6 +57,7 @@ void midPointCircleDraw(void){
             dsw = dsw - 4;
         }
         glVertex2i(x + x_centre, y + y_centre);
+        
     }
 
     while (y > r*sin(215*PI/180)){	
