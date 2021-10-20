@@ -1,6 +1,6 @@
 #include <GL/gl.h> 
 #include <GL/glu.h> 
-#include <GL/glut.h> // (or others, depending on the system in use)
+#include <GL/glut.h>
 #include <iostream>
 using namespace std;
 
