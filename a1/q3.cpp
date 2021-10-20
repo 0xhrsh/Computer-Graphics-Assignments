@@ -4,8 +4,19 @@
 #include<iostream>
 using namespace std;
 
+void init (void){
+	glClearColor (1.0, 1.0, 1.0, 0.0); // Set display-window color to white.
+	glMatrixMode (GL_PROJECTION); // Set projection parameters.
+	gluOrtho2D (0, 400, 400, 1);// Orthogonal projection: [x,y,z]--->[x,y,0]
+}
+
 // Implementing Mid-Point Circle Drawing Algorithm
 void midPointCircleDraw(void){
+    glClear (GL_COLOR_BUFFER_BIT); // Clear display window.
+	glColor3f (1.0, 0.0, 0.0); // Set point color to green.
+	glPointSize(20.0f); // Set point size
+	glBegin(GL_POINTS);// Marks the beginning of the vertices list
+
     int x_centre = 200;
     int y_centre = 200;
     int r = 100;
@@ -15,11 +26,8 @@ void midPointCircleDraw(void){
 	// Printing the initial point on the axes
 	// after translation
     glVertex2i(x+x_centre, y+y_centre);
-	
-	
-	// When radius is zero only a single
-	// point will be printed
-	if (r > 0){
+
+    if (r > 0){
         glVertex2i(x+x_centre, -y+y_centre);
         glVertex2i(y+x_centre, x+y_centre);
         glVertex2i(-y+x_centre, x+y_centre);
@@ -61,19 +69,16 @@ void midPointCircleDraw(void){
             glVertex2i(-y+x_centre, -x+y_centre);
 		}
 	}
-}
+    glEnd();
+	glFlush(); 
 
-void init (void){
-	glClearColor (1.0, 1.0, 1.0, 0.0); // Set display-window color to white.
-	glMatrixMode (GL_PROJECTION); // Set projection parameters.
-	gluOrtho2D (0, 400, 400, 1);// Orthogonal projection: [x,y,z]--->[x,y,0]
 }
 
 int main(int argc, char** argv){
 	glutInit(&argc, argv); // Initialize GLUT.
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB); // Set display mode.
 	glutInitWindowPosition(0, 0); // Set top-left display-window position.
-	glutInitWindowSize(500, 500); // Set display-window width and height.
+	glutInitWindowSize(700, 700); // Set display-window width and height.
 	glutCreateWindow("Assignment 1: Q2"); // Create display window.
 	init(); // Execute initialization procedure.
 	glutDisplayFunc(midPointCircleDraw); // Send graphics to display window.
