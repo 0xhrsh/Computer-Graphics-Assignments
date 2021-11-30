@@ -15,3 +15,5 @@ Running the assignment:
 Example:
 
 ![image](https://user-images.githubusercontent.com/44001232/144097897-903947ab-5d53-4b19-a8f1-8957e38f59a5.png)
+
+(see example.png)
