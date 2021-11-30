@@ -37,11 +37,11 @@ void display() {
     glMatrixMode(GL_MODELVIEW); // To operate on model-view matrix
 
     glLoadIdentity(); // Reset the model-view matrix
-    glTranslatef(0.0f, 0.0f, -500.0f); //move the camera in z direction to fully view the mesh
+    glTranslatef(0.0f, 0.0f, -400.0f); //move the camera in z direction to fully view the mesh
 
-    float xcam = -50;
-    float ycam = -80;
-    float zcam = 30;
+    float xcam = 0;
+    float ycam = 0;
+    float zcam = 0;
     float xlight = xcam;
     float ylight = ycam;
     float zlight = zcam;
