@@ -24,8 +24,8 @@ vector < float > crossProduct(vector < float > A, vector < float > B) {
 }
 
 void initGL() {
-    glClearColor(0.0 f, 0.0 f, 0.0 f, 1.0 f); // Set background color to black and opaque
-    glClearDepth(1.0 f); // Set background depth to farthest
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Set background color to black and opaque
+    glClearDepth(1.0f); // Set background depth to farthest
     glEnable(GL_DEPTH_TEST); // Enable depth testing for z-culling
     glDepthFunc(GL_LEQUAL); // Set the type of depth-test
     glShadeModel(GL_SMOOTH); // Enable smooth shading
@@ -37,7 +37,7 @@ void display() {
     glMatrixMode(GL_MODELVIEW); // To operate on model-view matrix
 
     glLoadIdentity(); // Reset the model-view matrix
-    glTranslatef(0.0 f, 0.0 f, -500.0 f); //move the camera in z direction to fully view the mesh
+    glTranslatef(0.0f, 0.0f, -500.0f); //move the camera in z direction to fully view the mesh
 
     float xcam = -50;
     float ycam = -80;
@@ -193,7 +193,7 @@ void display() {
             highlight = nTh * nTh * nTh * nTh;
         //back face culling algorithm removes the faces with dot product less than 0
         if (nTl >= 0) {
-            glColor3f(0.0 f, highlight, 1.0 * (nTl + highlight));
+            glColor3f(0.0f, highlight, 1.0 * (nTl + highlight));
             glVertex3f(V[v1][0], V[v1][1], V[v1][2]);
             glVertex3f(V[v2][0], V[v2][1], V[v2][2]);
             glVertex3f(V[v3][0], V[v3][1], V[v3][2]);
@@ -208,7 +208,7 @@ void reshape(GLsizei width, GLsizei height) {
     glViewport(0, 0, width, height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(45.0 f, aspect, 0.0 f, 1000.0 f);
+    gluPerspective(45.0f, aspect, 0.0f, 1000.0f);
 }
 
 int main(int argc, char ** argv) {
