@@ -21,3 +21,5 @@ Example:
 ## Contribution:	
 - Harsh Anand (B18CSE016) - Camera co-ordinate system, normal for each triangle, back face culling, widow and viewport size. also helped with phong shading.
 - Yashvi Ramanuj (B18CSE045) - phong shading, rendering the object, file I/O, View frutum size and normalised device coordinates, transformation of co-ordinates. also helped in back face culling.
+
+Note: Our work was mostly intertwined. We both did all things together. I separated them based on majority contribution.
