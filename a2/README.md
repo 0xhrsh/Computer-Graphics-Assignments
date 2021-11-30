@@ -12,3 +12,5 @@ Running the assignment:
 - press a number from 1, 2, 3, 4 and then press enter to view the model.
 - Change camera position from line 42, 43, 44 from the file `main.cpp`
 
+Example:
+
